@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: black;
+  height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+*::-webkit-scrollbar {
+  width: 20px;
+  border-left: 3px solid #455834;
+  border-right: 3px solid #455834;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #5d834e;
+  border: 3px solid #455834;
+}
+
+.nes-btn:focus{
+  background-color: #e7e7e7;
+}
