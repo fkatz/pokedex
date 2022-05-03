@@ -34,24 +34,24 @@ const UserMadePokemonEditor = ({
     defaultValues,
     mode: 'all',
   });
-  const onSubmit = (data: any) => {
+  const onSubmit: Parameters<typeof handleSubmit>[0] = (data) => {
     const newPokemonDetails: PokemonDetails = {
-      name: data.name,
-      sprite: data.sprite,
-      height: data.height,
-      weight: data.weight,
-      isLegendary: data.isLegendary,
+      name: data.name!,
+      sprite: data.sprite!,
+      height: data.height!,
+      weight: data.weight!,
+      isLegendary: data.isLegendary!,
       ...(data.evolvesFrom && { evolvesFrom: data.evolvesFrom }),
-      types: data.types.split('\n'),
-      moves: data.moves.split('\n'),
-      description: data.description,
+      types: data.types?.split('\n') || [],
+      moves: data.moves?.split('\n') || [],
+      description: data.description!,
     };
     currentPokemon
       ? modifyPokemon(newPokemonDetails, currentPokemon.name)
       : createPokemon(newPokemonDetails);
     onClose();
   };
-  
+
   const renderErrors = (name: keyof typeof errors) => (
     <>
       {errors[name]?.type === 'required' && <p>This field is required</p>}
