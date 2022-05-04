@@ -6,7 +6,6 @@ import { PokemonDetails } from '../../../types/PokemonDetails';
 import { PokemonDetailsResponse } from '../../../types/PokemonDetailsResponse';
 import { pokemonDetailsResponseToPokemonDetails } from '../../../utils';
 import {
-  fetchPokemons,
   getPokemonDetails,
   setErrorPokemon,
   setLoadingPokemon,
