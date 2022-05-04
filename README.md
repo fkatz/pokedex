@@ -1,3 +1,12 @@
+# React Pokédex
+
+![screenshot](https://user-images.githubusercontent.com/44483624/166608957-6954786f-bbfd-41d9-a0df-e2f849cd3ba2.png)
+
+
+---
+
+
+# Running the app
 In the project directory, you can run:
 
 ### `npm start`
@@ -41,3 +50,40 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 deployments, and you shouldn’t feel obligated to use this feature. However we understand that this
 tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+
+---
+
+
+# Project notes
+
+## Libraries used
+-  TypeScript
+-  Redux Toolkit: Mostly for file structure simplification
+-  Redux-Saga: Easier testing, possibility of using race conditions, effect compositions, etc. (vs thunks)
+-  Styled Components: Cleaner component structure (vs inline css-in-js like emotion or sass files with class names)
+-  React Hook Form: Clean hook-based form library
+
+## Decisions
+- Single page and modals instead of a router: Just a time saver. Could be easily adapted (IE having routes for pagination, Pokémon details).
+- One call fetches all Pokémon names. Each Pokémon's details are asynchronously retrieved when their tile is first rendered.
+- User-made Pokémon are stored separately.
+- The whole store is persisted to local storage.
+- Original (server side) Pokémon list can be refreshed at any time.
+- The app logic is tiered into layers. Components only interact with hooks, but never with the store directly. This facilitates refactoring and changes (example switching the user made Pokémon to be stored in a separate server) without changing the UI.
+
+## Features
+- Fully styled in Gameboy theme.
+- Example tests for components, hooks, reducers and sagas, including mocking.
+- User-made Pokémon creation, modification and deletion.
+- Asyncronous Pokémon detail retrieving.
+- Error handling.
+- Loading states.
+- Responsive styling
+
+## Example tests
+- src\components\PokemonTile\index.test.tsx
+- src\components\UserMadePokemonEditor\index.test.tsx
+- src\hooks\useRetrievePokemonNames.test.ts
+- src\redux\features\originalPokemon\originalPokemonSlice.test.ts
+- src\redux\features\originalPokemon\fetchPokemonSaga.test.ts
+- src\redux\features\originalPokemon\getPokemonDetailsSaga.test.ts
